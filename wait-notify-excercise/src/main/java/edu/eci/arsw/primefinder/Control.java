@@ -24,10 +24,10 @@ public class Control extends Thread {
 
         int i;
         for(i = 0;i < NTHREADS - 1; i++) {
-            PrimeFinderThread elem = new PrimeFinderThread(i*NDATA, (i+1)*NDATA);
+            PrimeFinderThread elem = new PrimeFinderThread(i*NDATA, (i+1)*NDATA, TMILISECONDS );
             pft[i] = elem;
         }
-        pft[i] = new PrimeFinderThread(i*NDATA, MAXVALUE + 1);
+        pft[i] = new PrimeFinderThread(i*NDATA, MAXVALUE + 1, TMILISECONDS );
     }
     
     public static Control newControl() {

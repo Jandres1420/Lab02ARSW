@@ -6,15 +6,16 @@ import java.util.List;
 public class PrimeFinderThread extends Thread{
 
 	
-	int a,b;
+	int a,b,waitingTime;
 	
 	private List<Integer> primes;
 	
-	public PrimeFinderThread(int a, int b) {
+	public PrimeFinderThread(int a, int b,int waitingTime) {
 		super();
-                this.primes = new LinkedList<>();
+		this.primes = new LinkedList<>();
 		this.a = a;
 		this.b = b;
+		this.waitingTime = waitingTime;
 	}
 
         @Override
