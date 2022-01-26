@@ -7,24 +7,38 @@ public class PrimeFinderThread extends Thread{
 
 	
 	int a,b,waitingTime;
-	
+	private long start = System.currentTimeMillis();
 	private List<Integer> primes;
+	private Object lock;
 	
-	public PrimeFinderThread(int a, int b,int waitingTime) {
+	public PrimeFinderThread(int a, int b,int waitingTime, Object lock ) {
 		super();
 		this.primes = new LinkedList<>();
 		this.a = a;
 		this.b = b;
 		this.waitingTime = waitingTime;
+		this.lock = lock;
 	}
 
         @Override
 	public void run(){
-            for (int i= a;i < b;i++){						
+            for (int i= a;i < b;i++){
+            	synchronized (lock){
+            		while(System.currentTimeMillis() - start >  waitingTime){
+            			try{
+            				lock.wait();
+							System.out.println("Hilo detenido");
+						}catch (InterruptedException ex){
+            				ex.printStackTrace();
+						}
+					}
+				}
+
                 if (isPrime(i)){
                     primes.add(i);
                     System.out.println(i);
                 }
+
             }
 	}
 	

@@ -15,19 +15,20 @@ public class Control extends Thread {
     private final static int TMILISECONDS = 5000;
 
     private final int NDATA = MAXVALUE / NTHREADS;
+    private Object pivot;
 
     private PrimeFinderThread pft[];
     
     private Control() {
         super();
         this.pft = new  PrimeFinderThread[NTHREADS];
-
+        pivot = new Object();
         int i;
         for(i = 0;i < NTHREADS - 1; i++) {
-            PrimeFinderThread elem = new PrimeFinderThread(i*NDATA, (i+1)*NDATA, TMILISECONDS );
+            PrimeFinderThread elem = new PrimeFinderThread(i*NDATA, (i+1)*NDATA, TMILISECONDS, pivot);
             pft[i] = elem;
         }
-        pft[i] = new PrimeFinderThread(i*NDATA, MAXVALUE + 1, TMILISECONDS );
+        pft[i] = new PrimeFinderThread(i*NDATA, MAXVALUE + 1, TMILISECONDS, pivot);
     }
     
     public static Control newControl() {
