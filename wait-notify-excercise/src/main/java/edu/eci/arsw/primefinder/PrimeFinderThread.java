@@ -1,5 +1,6 @@
 package edu.eci.arsw.primefinder;
 
+import java.util.ConcurrentModificationException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -27,14 +28,13 @@ public class PrimeFinderThread extends Thread{
             for (int i= a;i < b;i++){
             	synchronized (lock){
             		while(!waiting){
-						System.out.println("Hilo detenido");
-
             			try{
-            				lock.wait();
+							lock.wait();
 
 						}catch (InterruptedException ex){
             				ex.printStackTrace();
 						}
+
 					}
 				}
 

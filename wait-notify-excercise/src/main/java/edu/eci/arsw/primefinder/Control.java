@@ -16,7 +16,7 @@ public class Control extends Thread {
     private final static int MAXVALUE = 30000000;
     private final static int TMILISECONDS = 5000;
     private Scanner in;
-
+    private int n;
     private final int NDATA = MAXVALUE / NTHREADS;
     private long start = System.currentTimeMillis();
     private Object pivot;
@@ -50,14 +50,24 @@ public class Control extends Thread {
             pft[i].start();
         }
         while(exec) {
-            if (System.currentTimeMillis() - start >= TMILISECONDS) {
-                PrimeFinderThread.setWaiting(false);
-                for(int i=0; i < NTHREADS; i++){
-                    System.out.println(i);
-                    System.out.println(pft[i].getPrimes());
+            for(int i = 0; i < NTHREADS; i++ ) {
+                exec = pft[i].isAlive();
+                if(exec){
+                    break;
                 }
-                System.out.println("presione enter para continuar");
+            }
+            if(!exec){
+                break;
+            }
+            if (System.currentTimeMillis() - start >= TMILISECONDS) {
+                n = 0;
+                PrimeFinderThread.setWaiting(false);
                 synchronized (pivot) {
+                    for(int i=0 ; i < NTHREADS; i++){
+                        n += pft[i].getPrimes().size();
+                    }
+                    System.out.println("numero de Primos: "+ String.valueOf(n));
+                    System.out.println("presione enter para continuar");
                     if (in.nextLine().equals("")) {
                         PrimeFinderThread.setWaiting(true);
                         start = System.currentTimeMillis();
@@ -65,12 +75,7 @@ public class Control extends Thread {
                     }
                 }
             }
-            for(int i = 0; i < NTHREADS; i++ ) {
-                exec = pft[i].isAlive();
-                if(exec){
-                    break;
-                }
-            }
+
         }
     }
     
