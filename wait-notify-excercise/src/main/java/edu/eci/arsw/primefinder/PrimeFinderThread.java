@@ -6,28 +6,32 @@ import java.util.List;
 public class PrimeFinderThread extends Thread{
 
 	
-	int a,b,waitingTime;
-	private long start = System.currentTimeMillis();
+	int a,b;
+	private static boolean waiting;
+
 	private List<Integer> primes;
 	private Object lock;
 	
-	public PrimeFinderThread(int a, int b,int waitingTime, Object lock ) {
+	public PrimeFinderThread(int a, int b, Object lock ) {
 		super();
 		this.primes = new LinkedList<>();
 		this.a = a;
 		this.b = b;
-		this.waitingTime = waitingTime;
+
 		this.lock = lock;
+		this.waiting = true;
 	}
 
         @Override
 	public void run(){
             for (int i= a;i < b;i++){
             	synchronized (lock){
-            		while(System.currentTimeMillis() - start >  waitingTime){
+            		while(!waiting){
+						System.out.println("Hilo detenido");
+
             			try{
             				lock.wait();
-							System.out.println("Hilo detenido");
+
 						}catch (InterruptedException ex){
             				ex.printStackTrace();
 						}
@@ -36,7 +40,7 @@ public class PrimeFinderThread extends Thread{
 
                 if (isPrime(i)){
                     primes.add(i);
-                    System.out.println(i);
+                    //System.out.println(i);
                 }
 
             }
@@ -53,6 +57,9 @@ public class PrimeFinderThread extends Thread{
                 ans = n == 2;
             }
 	    return ans;
+	}
+	public static void setWaiting(boolean b){
+		waiting = b;
 	}
 
 	public List<Integer> getPrimes() {
