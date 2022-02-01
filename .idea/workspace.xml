@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18685ee3-177e-420c-81d6-aab68c36b4f8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wait-notify-excercise/PrimeFinder.iml" beforeDir="false" afterPath="$PROJECT_DIR$/wait-notify-excercise/PrimeFinder.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wait-notify-excercise/src/main/java/edu/eci/arsw/primefinder/Control.java" beforeDir="false" afterPath="$PROJECT_DIR$/wait-notify-excercise/src/main/java/edu/eci/arsw/primefinder/Control.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wait-notify-excercise/src/main/java/edu/eci/arsw/primefinder/PrimeFinderThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/wait-notify-excercise/src/main/java/edu/eci/arsw/primefinder/PrimeFinderThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,5 +68,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

@@ -16,7 +16,7 @@ import enums.Grid_Size;
  */
 public class SnakeApp {
 	private static SnakeApp app;
-	public static final int MAX_THREADS = 8;
+	public static final int MAX_THREADS = 6;
 	Snake[] snakes = new Snake[MAX_THREADS];
 	private static final Cell[] spawn = {
 			new Cell(1, (Grid_Size.GRID_HEIGHT / 2) / 2),

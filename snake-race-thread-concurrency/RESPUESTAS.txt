@@ -1,0 +1,30 @@
+INTEGRANTES
+JUAN PABLO ESPINOSA
+JUAN ANDRÉS PICO
+2. Posibles condiciones de carrera.
+⃝ Como cada serpiente es un hilo, son hilos independientes donde no son afectados por ninguna de las otras 
+serpientes pero si estas se encuentran en un mismo punto y van a la misma velocidadad se podrian enconntrar una posible
+condicion de carrera
+
+⃝ Si se ponen muchos hilos en ejecución podemos encontrar el caso en el que se presenta una condición carrera
+ya que además de salirse de rango del tablero, tambien se estan peleando las posiciones de cada una de las serpientes
+en el tablero.
+
+Uso inadeacudo de colecciones.
+
+⃝En la clase Snake encontramos dos atributos que son publicos y realmente deberian de ser privados, los cales son 
+goal y end
+
+⃝Encontramos varios metodos en la clase Cell que no son utilizados en ningún momento.
+
+⃝ La clase Board tiene mucha responsabilidad.
+
+Uso innecesario de esperas activas.
+
+⃝ En el juego se pueden crear ciclos infinitos
+
+3. 
+
+⃝ La solución que hicimos fue modificar el codigo para que cuando una serpiente no tenga salida
+se muera después de cierto tiempo
+

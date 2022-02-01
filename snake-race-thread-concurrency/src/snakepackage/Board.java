@@ -33,7 +33,7 @@ public class Board extends JLabel implements Observer {
 	public Board() {
 		if ((NR_BARRIERS + NR_JUMP_PADS + NR_FOOD + NR_TURBO_BOOSTS) > Grid_Size.GRID_HEIGHT
 				* Grid_Size.GRID_WIDTH)
-			throw new IllegalArgumentException(); 
+			throw new IllegalArgumentException();
 		GenerateBoard();
 		GenerateFood();
 		GenerateBarriers();
@@ -175,9 +175,9 @@ public class Board extends JLabel implements Observer {
 			e.printStackTrace();
 		}
 
-		for (Cell c : food){
-		g.drawImage(mouse, c.getX() * Grid_Size.WIDTH_BOX, c.getY()
-				* Grid_Size.HEIGH_BOX, this);
+		for (Cell c : food) {
+			g.drawImage(mouse, c.getX() * Grid_Size.WIDTH_BOX, c.getY()
+					* Grid_Size.HEIGH_BOX, this);
 		}
 	}
 
